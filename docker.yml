@@ -1,0 +1,6 @@
+#https://galaxy.ansible.com/angstwad/docker_ubuntu/
+---
+ - name: Run docker.ubuntu
+   hosts: all
+   roles:
+     - angstwad.docker_ubuntu
