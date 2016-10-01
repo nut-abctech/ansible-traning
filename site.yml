@@ -1,0 +1,26 @@
+---
+# This Playbook would deploy all infrastructure of simfarm service.
+- hosts: cloud
+  become: yes
+  vars_files:
+  - group_vars/all
+  roles:
+  - common
+  - angstwad.docker_ubuntu
+  tags: infra
+
+- hosts: cloud
+  become: yes
+  vars_files:
+    - group_vars/database
+  roles:
+    - ANXS.postgresql
+  tags: db
+
+- hosts: cloud
+  become: yes
+  vars_files:
+    - group_vars/apiservers
+  roles:
+    - nginx
+  tags: lb

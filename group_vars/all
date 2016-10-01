@@ -1,0 +1,24 @@
+---
+UBUNTU_COMMON_ROOT_PASSWORD: 'NnLvfnHf79mYp'
+UBUNTU_COMMON_DEPLOY_PASSWORD: 'NnLvfnHf79mYp'
+UBUNTU_COMMON_LOGWATCH_EMAIL: nutbiz@gmail.com
+ubuntu_common_deploy_user_name: deploy
+ubuntu_common_deploy_public_keys:
+  - ~/.ssh/id_rsa.pub
+
+ubuntu_common_required_packages:
+  - ufw
+  - fail2ban
+  - unattended-upgrades
+  - logwatch
+  - build-essential
+  - acl
+ubuntu_common_optional_packages:
+  - mosh
+  - vim
+  - htop
+  - vim
+  - curl
+ubuntu_common_ssh_port: 22
+ubuntu_common_mosh_from_port: 60000
+ubuntu_common_mosh_to_port: 60010

@@ -1,0 +1,5 @@
+---
+server_hostname: master.simfarm.net
+backup: admin.simfarm.net
+node1: admin.simfarm.net
+node2: admin.simfarm.net
