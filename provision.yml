@@ -1,15 +1,24 @@
 ---
 # This Playbook would deploy all infrastructure of simfarm service.
-- hosts: cloud
+- hosts: all
   become: yes
+  gather_facts: no
+  pre_tasks:
+    - name: 'install python2'
+      raw: sudo apt-get -y install python-simplejson
   vars_files:
   - group_vars/all
   roles:
   - common
-  - angstwad.docker_ubuntu
   tags: infra
 
-- hosts: cloud
+- hosts: all
+  become: yes
+  roles:
+  - angstwad.docker_ubuntu
+  tags: docker
+
+- hosts: master
   become: yes
   vars_files:
     - group_vars/database
@@ -17,7 +26,7 @@
     - ANXS.postgresql
   tags: db
 
-- hosts: cloud
+- hosts: master
   become: yes
   vars_files:
     - group_vars/apiservers
